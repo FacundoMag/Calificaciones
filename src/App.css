@@ -69,7 +69,7 @@ input {
   border: 1px solid #272626;
   border-radius: 5px;
   box-sizing: border-box;
-  color: #000; /* Color de texto negro para contraste */
+  color: #fff; /* Color de texto negro para contraste */
 }
 
 button {
