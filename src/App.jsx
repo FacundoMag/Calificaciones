@@ -38,11 +38,14 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Formulario agregarNota={this.agregarNota} eliminarNotas={this.eliminarNotas} />
-        <MostrarPromedio promedio={this.calcularPromedio()} />
-        <ListaNotas notas={this.state.notas} actualizarNota={this.actualizarNota} />
+        <div className="contenedor-principal">
+          <div className="contenedor-izquierda">
+            <Formulario agregarNota={this.agregarNota} eliminarNotas={this.eliminarNotas} />
+            <MostrarPromedio promedio={this.calcularPromedio()} />
+          </div>
+          <ListaNotas notas={this.state.notas} actualizarNota={this.actualizarNota} />
+        </div>
       </div>
     );
   }
 }
-
