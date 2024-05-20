@@ -5,25 +5,48 @@ export default class Formulario extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      materia: '',
-      
+      asignatura: '',
+      nota: ''
     };
   }
 
+  manejarCambioAsignatura = (e) => {
+    this.setState({ asignatura: e.target.value });
+  };
+
+  manejarCambioNota = (e) => {
+    this.setState({ nota: e.target.value });
+  };
+
+  manejarEnvio = (e) => {
+    e.preventDefault();
+    const { asignatura, nota } = this.state;
+    if (asignatura && nota) {
+      this.props.agregarNota(asignatura, nota);
+      this.setState({ asignatura: '', nota: '' });
+    }
+  };
+
   render() {
     return (
-      <div className='Formulario'>
+      <form onSubmit={this.manejarEnvio} className="formulario">
         <input
-          type='text'
-          placeholder='Materia'
-          value={this.state.nombre}
-          onChange={(e) => this.setState({ nombre: e.target.value })}
+          type="text"
+          value={this.state.asignatura}
+          onChange={this.manejarCambioAsignatura}
+          placeholder="Asignatura"
+          required
         />
-        <Boton
-          accion={() => this.props.guardar(this.state.materia)}
-          simbolo='agregar materia'
+        <input
+          type="number"
+          value={this.state.nota}
+          onChange={this.manejarCambioNota}
+          placeholder="Nota"
+          required
         />
-      </div>
+        <Boton tipo="submit" texto="Agregar Nota" />
+        <Boton tipo="button" texto="Eliminar Todas las Notas" onClick={this.props.eliminarNotas} />
+      </form>
     );
   }
 }
