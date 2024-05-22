@@ -46,6 +46,16 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  padding: 10px; /* Añadido para mayor visibilidad */
+  border-radius: 5px; /* Añadido para igualar el diseño */
+}
+
+.nota-alta {
+  background-color: #28a745; /* Verde */
+}
+
+.nota-baja {
+  background-color: #dc3545; /* Rojo */
 }
 
 .lista-notas span {
@@ -58,7 +68,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   text-align: right;
-  color: #000; /* Color de texto negro para contraste */
+  color: #fff; /* Color de texto negro para contraste */
 }
 
 input {
